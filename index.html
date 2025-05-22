@@ -1,0 +1,1188 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Centro Cultural y Politécnico José Coronel Urtecho</title>
+  <div id="fb-root"></div>
+<script async defer crossorigin="anonymous" src="https://connect.facebook.net/en_US/sdk.js"></script>
+   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
+  <link rel="stylesheet" href="estilos.css">
+  <script defer src="main.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/html2canvas@1.4.1/dist/html2canvas.min.js"></script>
+</head>
+<body>
+  <!-- ESTE CODIGO FUE DISEÑADO BY OSCARELIESER -->
+  <header>
+    
+    <div class="logos-institucionales">
+   <img src="img/logo3.png" alt="Logo Institucional 3">
+    <img src="img/logo1.png" alt="Logo Institucional 1">
+    <img src="img/logo2.png" alt="Logo Institucional 2">
+  </div>
+    <h1>Centro Cultural y Politécnico José Coronel Urtecho</h1>
+    <p><em>¡No volverá el pasado!</em></p>
+      <div class="header-top">
+    <!-- Solo el formulario del buscador -->
+<form class="buscador" action="https://www.google.com/search" method="get" target="_blank">
+  <button type="submit" class="icono-buscar">
+    <i class="fas fa-search"></i>
+  </button>
+  <input type="text" name="q" placeholder="Buscar..." aria-label="Buscar">
+</form>
+    <div class="social-header">
+      <a href="https://www.facebook.com/CentroCulturalJCU" target="_blank" aria-label="Facebook"><i class="fab fa-facebook"></i></a>
+      <a href="https://www.youtube.com/user/TecnologicoNacional" target="_blank" aria-label="Twitter"><i class="fab fa-x-twitter"></i></a>
+      <a href="https://www.instagram.com/tecnacional//" target="_blank" aria-label="Instagram"><i class="fab fa-instagram"></i></a>
+      <a href="https://www.youtube.com/user/TecnologicoNacional" target="_blank" aria-label="fa-youtube"><i class="fab fa-youtube"></i></a>
+    </div>
+  </div>
+  </header>
+  
+<!-- ...en tu footer... -->
+<footer>
+  <div id="info-usuario" style="margin-top:8px;font-size:0.95em;color:#00e6e6;"></div>
+  <div id="horario-atencion" style="margin-top:4px;font-size:0.95em;"></div>
+  <div class="login-social">
+    <div id="google-signin-btn" class="social-btn google"></div>
+   
+   </div>
+   <div id="google-user-info" style="margin:10px 0;">
+    </div> 
+           
+          <!-- Botón para mostrar el formulario de carnet digital -->
+<div style="text-align:center; margin: 30px 0;">
+  <button id="mostrar-carnet-btn" class="btn-carnet-digital">
+    <i class="fas fa-id-card"></i> Registrar Carnet Digital
+  </button>
+</div>
+
+<!-- Sección Carnet Digital (oculta al inicio) -->
+<section id="carnet-digital-seccion" style="display:none; max-width:420px;margin:40px auto 30px auto;padding:24px 18px 18px 18px;background:#fff;border-radius:18px;box-shadow:0 4px 24px rgba(0,0,0,0.10);">
+  <h2 style="text-align:center;color:#00b3b3;margin-bottom:18px;">Generar tu Carnet Digital</h2>
+  <form id="form-carnet-seccion">
+    <div class="campo-carnet">
+      <label for="foto-carnet-seccion">Foto:</label>
+      <input type="file" accept="image/*" id="foto-carnet-seccion" required>
+    </div>
+    <div class="campo-carnet">
+      <label for="nombre-carnet-seccion">Nombre completo:</label>
+      <input type="text" id="nombre-carnet-seccion" required>
+    </div>
+    <div class="campo-carnet">
+      <label for="numero-carnet-seccion">Número de Carnet:</label>
+      <input type="text" id="numero-carnet-seccion" required>
+    </div>
+    <div class="campo-carnet">
+      <label for="turno-carnet-seccion">Turno:</label>
+      <select id="turno-carnet-seccion" required>
+        <option value="">Selecciona</option>
+        <option>Matutino</option>
+        <option>Vespertino</option>
+        <option>Sabatino</option>
+        <option>Dominical</option>
+      </select>
+    </div>
+    <div class="campo-carnet">
+      <label for="hora-carnet-seccion">Hora de Entrada y Salida:</label>
+      <select id="hora-carnet-seccion" required>
+        <option value="">Selecciona</option>
+        <option>07:00 AM - 12:30 PM</option>
+        <option>12:30 PM - 06:00 PM</option>
+        <option>07:30 AM - 04:15 PM</option>
+      </select>
+    </div>
+    <div class="campo-carnet">
+      <label for="carrera-carnet-seccion">Carrera:</label>
+      <select id="carrera-carnet-seccion" required>
+        <option value="">Selecciona</option>
+        <option>Técnico General en Administración</option>
+        <option>Técnico General en Contabilidad</option>
+        <option>Técnico General en Computación</option>
+        <option>Técnico Especialista en Programación</option>
+        <option>Técnico Especialista en Marketing y Publicidad</option>
+        <option>Técnico General en Gestión de Recursos Humanos</option>
+        <option>Técnico General en Electricidad Industrial</option>
+        <option>Técnico Especialista en Dibujo Arquitectónico</option>
+        <option>Técnico General en Maestro de Obras en Construcciones Verticales</option>
+        <option>Técnico General en Diseño, Corte y Confección</option>
+        <option>Técnico General en Topografía</option>
+        <option>Técnico General en Corte y Soldadura</option>
+        <option>Técnico General en Motocicletas</option>
+        <option>Técnico Especialista en Diseño Gráfico</option>
+      </select>
+    </div>
+    <button type="submit" class="btn-matriculate" style="margin-top:12px;width:100%;">Generar Carnet</button>
+  </form>
+  <div id="preview-carnet-seccion" style="margin-top:18px;display:none;">
+    <div id="carnet-digital-seccion-preview" class="carnet-digital elegante-carnet">
+      <div class="carnet-header">
+        <img src="img/logo1.png" alt="Logo" class="carnet-logo">
+        <div>
+          <strong>Centro Cultural y Politécnico<br>José Coronel Urtecho</strong>
+          <div style="font-size:0.95em;">Km 4.5 Carretera Norte, Managua</div>
+        </div>
+      </div>
+      <div class="carnet-body">
+        <img id="carnet-foto-preview-seccion" src="" alt="Foto Carnet" class="carnet-foto">
+        <div class="carnet-info">
+          <div><b>Nombre:</b> <span id="carnet-nombre-preview-seccion"></span></div>
+          <div><b>Número de Carnet:</b> <span id="carnet-numero-preview-seccion"></span></div>
+          <div><b>Turno:</b> <span id="carnet-turno-preview-seccion"></span></div>
+          <div><b>Hora de Entrada y Salida:</b> <span id="carnet-hora-preview-seccion"></span></div>
+          <div><b>Carrera:</b> <span id="carnet-carrera-preview-seccion"></span></div>
+        </div>
+      </div>
+      <div class="carnet-footer">
+        <span>Válido para el año 2025</span>
+      </div>
+    </div>
+    <button id="descargar-carnet-seccion" class="btn-matriculate" style="margin-top:14px;width:100%;">
+      Descargar Carnet como Imagen
+    </button>
+  </div>
+</section>
+ </footer>
+  <!-- ESTE CODIGO FUE DISEÑADO BY OSCARELIESER -->
+ <!--Ejemplo para TODOS los submenús y sub-submenús -->
+ <nav class="navbar">
+  <ul class="menu">
+    <li>
+      <a href="#inicio">Inicio</a>
+      <ul class="submenu">
+        <li><a href="#bienvenida">Bienvenida</a></li>
+        <li><a href="#mision-vision">Misión y Visión</a></li>
+        <li><a href="#historia">Historia del Centro</a></li>
+        <li><a href="#noticias">Noticias y Anuncios</a></li>
+        <li><a href="#testimonios">Testimonios</a></li>
+      </ul>
+    </li>
+    <li>
+      <a href="#oferta">Oferta Académica</a>
+      <ul class="submenu">
+        <li>
+          <a href="#">Técnicos</a>
+          <ul class="submenu">
+            <li><a href="#tecnicos-generales">Técnicos Generales</a></li>
+            <li><a href="#tecnicos-especialistas">Técnicos Especialistas</a></li>
+          </ul>
+        </li>
+        <li>
+          <a href="#">Cursos Libres</a>
+          <ul class="submenu">
+            <li><a href="#comercio-servicio">Comercio y Servicio</a></li>
+            <li><a href="#industria-construccion">Industria y Construcción</a></li>
+            <li><a href="#arte-cultura">Arte y Cultura</a></li>
+          </ul>
+        </li>
+      </ul>
+    </li>
+    <li>
+      <a href="#docentes">Docentes y Personal</a>
+      <ul class="submenu">
+        <li><a href="#directorio-docentes">Directorio de Docentes</a></li>
+        <li><a href="#coordinadores-area">Coordinadores de Área</a></li>
+        <li><a href="#equipo-administrativo">Equipo Administrativo</a></li>
+      </ul>
+    </li>
+    <li>
+      <a href="#recursos">Recursos Académicos</a>
+      <ul class="submenu">
+      
+        <li><a href="#guia-manuales">Guía y Manuales</a></li>
+        <li><a href="#calendario-academico">Calendario Académico</a></li>
+        <li><a href="#plataforma-clases">Plataforma de Clases Virtuales</a></li>
+      </ul>
+    </li>
+    <li>
+      <a href="#estudiantes">Estudiantes</a>
+      <ul class="submenu">
+        <li><a href="#requisito-matricula">Requisito de Matrícula</a></li>
+        <li><a href="#vida-estudiantil">Vida Estudiantil</a></li>
+        <li><a href="#proyecto-destacados">Proyectos Destacados</a></li>
+        <li><a href="#reglamento-interno">Reglamento Interno</a></li>
+        <li><a href="#evaluaciones-calificaciones">Evaluaciones y Calificaciones</a></li>
+      </ul>
+    </li>
+   
+    <li>
+      <a href="#galeria">Galería</a>
+      <ul class="submenu">
+        <li><a href="#actividades-academicas">Actividades Académicas</a></li>
+        <li><a href="#videos">Videos</a></li>
+        <li><a href="#ferias-tecnologicas">Ferias Tecnológicas</a></li>
+        <li><a href="#creativa-chic">Creativa Chic</a></li>
+        <li><a href="#hackathon">Hackathon</a></li>
+        <li><a href="#graduaciones">Graduaciones</a></li>
+      </ul>
+    </li>
+    <li>
+      <a href="#blog">Noticias y Blog</a>
+      <ul class="submenu">
+        <li><a href="#innovacion-educativa">Innovación Educativa</a></li>
+        <li><a href="#publicaciones-estudiantes">Publicaciones de Estudiantes</a></li>
+        <li><a href="#articulos-opinion">Artículos de Opinión</a></li>
+        <li><a href="#actividades-institucionales">Actividades Institucionales</a></li>
+      </ul>
+    </li>
+    <li>
+      <a href="#contacto">Contáctanos</a>
+      <ul class="submenu">
+        <li><a href="#formulario-contacto">Formulario</a></li>
+     
+      </ul>
+    </li>
+  </ul>
+ </nav>
+ <!-- ...poner el carrusel de foto automatico... -->  <!-- ESTE CODIGO FUE DISEÑADO BY OSCARELIESER -->
+<!-- Carrusel Futurista Automático -->
+<section class="carrusel-futurista">
+  <div class="carrusel-futurista-imagenes">
+    <img src="img/tecnologico1.jpeg" alt="Tecnológico 1" class="carrusel-futurista-img">
+    <img src="img/tecnologico2.jpeg" alt="Tecnológico 2" class="carrusel-futurista-img">
+    <img src="img/tecnologico.png" alt="Tecnológico 3" class="carrusel-futurista-img">
+    <img src="img/1.jpg" alt="Galería 1" class="carrusel-futurista-img">
+    <img src="img/2.jpg" alt="Galería 2" class="carrusel-futurista-img">
+    <img src="img/3.jpg" alt="Galería 3" class="carrusel-futurista-img">
+    <img src="img/4.jpg" alt="Galería 4" class="carrusel-futurista-img">
+    <img src="img/5.jpg" alt="Galería 5" class="carrusel-futurista-img">
+  </div>
+  <div class="carrusel-futurista-puntos">
+    <span></span><span></span><span></span><span></span>
+    <span></span><span></span><span></span><span></span>
+  </div>
+</section>
+ <!-- ...poner el carrusel de foto automatico... -->  <!-- ESTE CODIGO FUE DISEÑADO BY OSCARELIESER -->
+  <main>
+    <section id="contacto">
+      <h2>Contáctanos</h2>
+      <ul>
+        <!-- ...existing code... -->  <!-- ESTE CODIGO FUE DISEÑADO BY OSCARELIESER -->
+ <ul>
+ <ul>
+  <li>
+    <i class="fas fa-map-marker-alt"></i>
+    <span>Ubicación y Mapa</span>
+  </li>
+ </ul>
+ <div style="margin-bottom:16px;">
+  <iframe
+    src="https://www.google.com/maps?q=Centro+Politécnico+José+Coronel+Urtecho&output=embed"
+    width="100%" height="250" style="border:0; border-radius:8px;"
+    allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade">
+  </iframe> 
+ </div>
+ <ul>
+  <li>
+    <i class="fas fa-map-marker-alt"></i>
+    Dirección: Km 4, 5 Carretera Norte, Managua 11009,Nicaragua
+  </li>
+  <li>
+    <i class="fas fa-envelope"></i>
+    Correo: <a href="mailto:correo@ccpju.edu.ni">correo@ccpju.edu.ni</a>
+  </li>
+  <li>
+    <i class="fas fa-phone"></i>
+    Teléfono: <a href="tel:+50522223333">+505 2251 3620</a>
+  </li>
+ </ul>
+ </ul>
+ <!-- ...existing code... -->
+      <form id="formulario-contacto" class="form-elegante">
+  <div class="campo-form">
+    <i class="fas fa-user"></i>
+    <input type="text" name="nombre" placeholder="Tu nombre" required>
+  </div>
+  <div class="campo-form">
+    <i class="fas fa-envelope"></i>
+    <input type="email" name="correo" placeholder="Tu correo" required>
+  </div>
+  <div class="campo-form">
+    <i class="fas fa-comment-dots"></i>
+    <textarea name="mensaje" placeholder="Tu mensaje" required></textarea>
+  </div>
+  <button type="submit"><i class="fas fa-paper-plane"></i> Enviar mensaje</button>
+ </form>
+    </section>
+  </main>
+  <script>
+  document.querySelectorAll('form.buscador').forEach(form => {
+    form.addEventListener('submit', function() {
+      setTimeout(() => {
+        this.querySelector('input[name="q"]').value = '';
+      }, 100);
+    });
+  });
+ </script>
+<!-- Botón flotante para activar el selector de tema -->  <!-- ESTE CODIGO FUE DISEÑADO BY OSCARELIESER -->
+<button id="toggle-selector-tema" style="position:fixed;bottom:60px;right:20px;
+z-index:2100;background:#00e6e6;color:#14143c;border:none;border-radius:50%;
+width:36px;height:36px;cursor:pointer;font-size:1.2em;">🎨</button>
+
+<div class="selector-tema oculto" style="position:fixed;bottom:110px;right:20px;z-index:2100;">
+    <button data-tema="oscuro">🌑 Oscuro</button>
+  <button data-tema="modo-claro">🌕 Claro</button>
+  <button data-tema="tema-verde">🌿 Verde</button>
+  <button data-tema="tema-azul">💧 Azul</button>
+  <button data-tema="tema-rojo">🔥 Rojo</button>
+  <button data-tema="tema-morado">🟣 Morado</button>
+</div>
+<!--finalizacion del tema -->
+<!-- ...carrusel... -->  <!-- ESTE CODIGO FUE DISEÑADO BY OSCARELIESER -->
+<main>
+  <!-- SECCIONES DE INFORMACIÓN (una por cada submenú) -->
+  <section id="bienvenida" class="info-seccion" style="display:none;">
+    <h2>Bienvenida</h2>
+    <p>¡Bienvenidos al Centro Cultural y Politécnico José Coronel Urtecho! 
+      Hoy inician un camino lleno de oportunidades donde el arte, la cultura 
+      y la educación técnica se unen para transformar vidas. Este es un
+       espacio único en Nicaragua, el primero de su tipo, donde cada joven
+        y adulto tiene la oportunidad de descubrir su talento, fortalecer 
+        su identidad y construir un futuro con dignidad y esperanza.
+         Aprovechen con pasión y compromiso esta maravillosa oportunidad que 
+         les brinda el Tecnológico Nacional,
+       porque aquí, con orgullo y decisión, ¡No Volverá el Pasado!</p>
+  </section>
+  <section id="mision-vision" class="info-seccion" style="display:none;">
+    <h2>Misión </h2>
+    <p>Misión Formar de manera
+   integral a jóvenes y adultos a través de 
+   una educación técnica y tecnológica de calidad, 
+   con identidad nacional, sentido humanista y enfoque intercultural,
+   promoviendo el arte, la cultura y el pensamiento crítico como herramientas
+   transformadoras para el desarrollo personal, profesional y comunitario.</p>
+
+   <h2>Visión</h2>
+
+   <p></p>Ser un centro de excelencia en la formación técnica y cultural,
+   referente nacional por su innovación educativa,
+   su compromiso con el desarrollo del talento nicaragüense y 
+   su aporte a la construcción de una sociedad justa, creativa y 
+   con memoria histórica, donde ¡no volverá el pasado! y se proyecta un
+   futuro con dignidad, 
+   identidad y esperanza.</p>
+  </section>
+  <section id="historia" class="info-seccion" style="display:none;">
+    <h2>Historia del Centro</h2>
+    <h2>Reseña Historia del Centro Cultural y Politécnico José Coronel Urtecho
+   "¡No volverá el pasado!"</h2>
+
+   <p>Hace dos años, nuestro país fue testigo del nacimiento 
+   de un espacio dedicado al arte, la cultura y la educación técnica:
+    el Centro Cultural y Politécnico José Coronel Urtecho. 
+   Esta obra emblemática fue posible gracias a la firme voluntad 
+   de nuestro Buen Gobierno de Reconciliación y Unidad Nacional, 
+   dirigido por nuestros copresidentes de la República de Nicaragua, 
+   el Comandante Daniel Ortega Saavedra y la Compañera Rosario Murillo.
+
+   Desde su habilitación, el centro ha sido un faro de esperanza
+   y transformación para miles de jóvenes y adultos, brindando formación 
+   técnica gratuita con calidad y calidez humana. A través de sus aulas, 
+   talleres y espacios culturales, se ha impulsado el talento nicaragüense, 
+   rescatando nuestra identidad nacional y proyectando el futuro con dignidad y compromiso.
+
+   El Centro José Coronel Urtecho no es solo un edificio, es un símbolo de 
+   que el pasado no volverá, porque hoy Nicaragua avanza con amor, paz y justicia social, 
+   llevando oportunidades a cada rincón del país.</p>
+
+<div class="rosario-bloque">
+  <h2>Compañera Rosario Murrillo (Co-Presidente de la Republica de Nicaragua)</h2>
+  <img src="img/rosario.jpg" alt="Rosario Murillo" class="rosario-img">
+  <p>
+    “Don José Coronel Urtecho y su obra vibrando, viva, porque no volverá el pasado,
+    porque vamos adelante, porque siempre más allá, recorremos este camino, 
+    en el siempre y más allá, este camino de Patria. Y porque hay Patria hay Paz,
+    y porque hay paz hay trabajo, hay estabilidad, hay sueños realizándose, 
+    hay educación, hay salud, hay carreteras, hay caminos, hay puentes,
+    hay cultura en alto, hay viviendas sociales, hay parques, hay mercados,
+    hay camposantos, hay mejoras en todas las instalaciones 
+    deportivas y recreativas, porque hay Patria y hay Paz”.
+  </p>
+</div>
+  </section>
+ <section id="noticias" class="info-seccion" style="display:none;">
+  <h2>Noticias y Anuncios</h2>
+  <div id="noticias-lista"></div>
+  </section>
+  <section id="testimonios" class="info-seccion" style="display:none;">
+  <h2>Testimonios</h2>
+  <div id="testimonios-lista" class="testimonio-lista"></div>
+  <hr>
+  <h3>¡Agrega tu calificación!</h3>
+  <form id="form-calificacion" style="margin-bottom:10px;">
+    <label for="comentario">Tu comentario:</label><br>
+    <textarea id="comentario" required style="width:100%;max-width:400px;"></textarea><br>
+    <label>Tu calificación:</label>
+    <span id="estrellas-input">
+      <i class="fa-regular fa-star" data-estrella="1"></i>
+      <i class="fa-regular fa-star" data-estrella="2"></i>
+      <i class="fa-regular fa-star" data-estrella="3"></i>
+      <i class="fa-regular fa-star" data-estrella="4"></i>
+      <i class="fa-regular fa-star" data-estrella="5"></i>
+    </span>
+    <input type="hidden" id="valor-estrella" value="0" required>
+    <button type="submit" style="margin-left:10px;"><i class="fas fa-paper-plane"></i> Enviar</button>
+  </form>
+</section>
+<script>
+// Testimonios iniciales (solo la primera vez)
+const testimoniosDefault = [
+  {
+    nombre: "José  Pérez",
+    comentario: "Excelente centro, aprendí mucho y los docentes son muy dedicados.",
+    valor: 5,
+    foto: '<i class="fas fa-user-graduate"></i>'
+  },
+  {
+    nombre: "Beverly Chamorro",
+    comentario: "Ambiente agradable y buenas instalaciones.",
+    valor: 4,
+    foto: '<i class="fas fa-user"></i>'
+  },
+  {
+    nombre: "Nathalia López",
+    comentario: "Recomiendo los cursos técnicos, muy prácticos.",
+    valor: 5,
+    foto: '<i class="fas fa-user-tie"></i>'
+  }
+];
+
+// Cargar testimonios de localStorage o usar los predeterminados
+function cargarTestimonios() {
+  let testimonios = [];
+  try {
+    testimonios = JSON.parse(localStorage.getItem('testimoniosCCPJU')) || testimoniosDefault;
+  } catch {
+    testimonios = testimoniosDefault;
+  }
+  return testimonios;
+}
+
+// Guardar testimonios en localStorage
+function guardarTestimonios(testimonios) {
+  localStorage.setItem('testimoniosCCPJU', JSON.stringify(testimonios));
+}
+
+// Mostrar testimonios en la página
+function mostrarTestimonios() {
+  const testimonios = cargarTestimonios();
+  const contenedor = document.getElementById('testimonios-lista');
+  contenedor.innerHTML = '';
+  testimonios.forEach(t => {
+    let fotoHtml = t.foto || `<i class="fas fa-user-circle" style="font-size:2em;color:#00e6e6;margin-right:8px;vertical-align:middle;"></i>`;
+    contenedor.innerHTML += `
+      <div class="testimonio">
+        <p>${fotoHtml}<strong>${t.nombre}</strong>: "${t.comentario}"</p>
+        <div class="estrellas">
+          ${[1,2,3,4,5].map(i =>
+            i <= t.valor
+              ? '<i class="fa-solid fa-star" style="color:#FFD700;"></i>'
+              : '<i class="fa-regular fa-star" style="color:#FFD700;"></i>'
+          ).join('')}
+        </div>
+      </div>
+    `;
+  });
+}
+
+// Calificación interactiva (¡esto es lo que te faltaba!)
+const estrellasInput = document.getElementById('estrellas-input');
+const valorEstrella = document.getElementById('valor-estrella');
+if(estrellasInput) {
+  estrellasInput.addEventListener('mouseover', e => {
+    if(e.target.dataset.estrella) {
+      const val = parseInt(e.target.dataset.estrella);
+      estrellasInput.querySelectorAll('i').forEach((star, idx) => {
+        star.className = idx < val ? 'fa-solid fa-star' : 'fa-regular fa-star';
+      });
+    }
+  });
+  estrellasInput.addEventListener('mouseout', () => {
+    const val = parseInt(valorEstrella.value) || 0;
+    estrellasInput.querySelectorAll('i').forEach((star, idx) => {
+      star.className = idx < val ? 'fa-solid fa-star' : 'fa-regular fa-star';
+    });
+  });
+  estrellasInput.addEventListener('click', e => {
+    if(e.target.dataset.estrella) {
+      valorEstrella.value = e.target.dataset.estrella;
+      estrellasInput.querySelectorAll('i').forEach((star, idx) => {
+        star.className = idx < valorEstrella.value ? 'fa-solid fa-star' : 'fa-regular fa-star';
+      });
+    }
+  });
+}
+
+// Al enviar el formulario, guardar el testimonio
+document.getElementById('form-calificacion').onsubmit = function(e) {
+  e.preventDefault();
+  const comentario = document.getElementById('comentario').value.trim();
+  const valor = parseInt(document.getElementById('valor-estrella').value);
+  let nombre = "Anónimo";
+  let fotoHtml = `<i class="fas fa-user-circle" style="font-size:2em;color:#00e6e6;margin-right:8px;vertical-align:middle;"></i>`;
+  if (window.googleUser) {
+    nombre = googleUser.nombre;
+    fotoHtml = `<img src="${googleUser.foto}" alt="Foto usuario" style="width:40px;height:40px;border-radius:50%;object-fit:cover;margin-right:8px;vertical-align:middle;">`;
+  }
+  if(comentario && valor > 0) {
+    let testimonios = cargarTestimonios();
+    testimonios.unshift({
+      nombre,
+      comentario,
+      valor,
+      foto: fotoHtml
+    });
+    guardarTestimonios(testimonios);
+    mostrarTestimonios();
+    this.reset();
+    estrellasInput.querySelectorAll('i').forEach(star => star.className = 'fa-regular fa-star');
+    document.getElementById('valor-estrella').value = 0;
+  }
+};
+
+// Mostrar testimonios al cargar la página
+document.addEventListener('DOMContentLoaded', mostrarTestimonios);
+</script>
+  <!-- Oferta Académica -->
+  <section id="tecnicos-generales" class="info-seccion" style="display:none;">
+    <h2>Técnicos Generales</h2>
+    <p>Información sobre técnicos generales.</p>
+  </section>
+  <section id="tecnicos-especialistas" class="info-seccion" style="display:none;">
+    <h2>Técnicos Especialistas</h2>
+    <p>Información sobre técnicos especialistas.</p>
+  </section>
+  <section id="comercio-servicio" class="info-seccion" style="display:none;">
+    <h2>Comercio y Servicio</h2>
+    <p>Información sobre cursos de comercio y servicio.</p>
+  </section>
+  <section id="industria-construccion" class="info-seccion" style="display:none;">
+    <h2>Industria y Construcción</h2>
+    <p>Información sobre cursos de industria y construcción.</p>
+  </section>
+  <section id="arte-cultura" class="info-seccion" style="display:none;">
+    <h2>Arte y Cultura</h2>
+    <p>Información sobre cursos de arte y cultura.</p>
+  </section>
+
+  <!-- Docentes y Personal -->
+  <section id="directorio-docentes" class="info-seccion" style="display:none;">
+  <h2>Directorio de Docentes</h2>
+  <div id="galeria-docentes" class="galeria-personal"></div>
+</section>
+<section id="coordinadores-area" class="info-seccion" style="display:none;">
+  <h2>Coordinadores de Área</h2>
+  <div id="galeria-coordinadores" class="galeria-personal"></div>
+</section>
+<section id="equipo-administrativo" class="info-seccion" style="display:none;">
+  <h2>Equipo Administrativo</h2>
+  <div id="galeria-administrativos" class="galeria-personal"></div>
+</section>
+
+  <!-- Recursos Académicos -->
+
+  <section id="guia-manuales" class="info-seccion" style="display:none;">
+    <h2>Guía y Manuales</h2>
+    <p>Guías y manuales disponibles.</p>
+  </section>
+  <!-- Calendario Académico con Fechas Importantes -->
+<section id="calendario-academico" class="info-seccion" style="display:none;">
+  <h2>Calendario Académico</h2>
+  <div id="calendario-navegacion" style="text-align:center;margin-bottom:10px;">
+    <button id="cal-previo" style="margin-right:10px;">&#8592; Anterior</button>
+    <span id="cal-titulo" style="font-weight:bold;color:#00b3b3;"></span>
+    <button id="cal-siguiente" style="margin-left:10px;">Siguiente &#8594;</button>
+  </div>
+  <div id="calendario-importante"></div>
+  <div id="evento-dia" style="margin-top:18px;color:#00b3b3;font-weight:bold;"></div>
+</section>
+ <section id="plataforma-clases" class="info-seccion" style="display:none;">
+  <h2>Plataforma de Clases Virtuales</h2>
+  <p>Acceso a la plataforma de clases virtuales.</p>
+  <div class="plataforma-campus-centro">
+    <a href="https://campus.inatec.edu.ni/" target="_blank">
+      <img src="img/campus.png" alt="Ir al Campus Virtual INATEC" class="img-campus-grande">
+    </a>
+    <a href="https://campus.inatec.edu.ni/" target="_blank" class="btn-campus">
+      Ir al Campus Virtual INATEC
+      <i class="fas fa-arrow-up-right-from-square"></i>
+    </a>
+  </div>
+</section>
+
+  <!-- Estudiantes -->
+  <section id="requisito-matricula" class="info-seccion" style="display:none;">
+  <h2>Requisito de Matrícula</h2>
+  <div class="requisitos-matricula">
+    <div class="requisito-item">
+      <img src="img/requisitos/diploma-bachiller.jpg" alt="Diploma de Bachiller" class="img-requisito">
+      <span>Diploma de Bachiller</span>
+    </div>
+    <div class="requisito-item">
+      <img src="img/requisitos/certificado-notas.jpg" alt="Certificado de Notas de Tercer Año Aprobado" class="img-requisito">
+      <span>Certificado de Notas de Tercer Año Aprobado</span>
+    </div>
+    <div class="requisito-item">
+      <img src="img/requisitos/cedula-frente.jpg" alt="Cédula de Identidad (Frente)" class="img-requisito">
+      <span>Cédula de Identidad (Frente)</span>
+    </div>
+    <div class="requisito-item">
+      <img src="img/requisitos/cedula-reverso.jpg" alt="Cédula de Identidad (Reverso)" class="img-requisito">
+      <span>Cédula de Identidad (Reverso)</span>
+    </div>
+  </div>
+  <a href="https://serviciosenlinea.tecnacional.edu.ni/inicio" target="_blank" class="btn-matriculate">
+    Ir al servicio en línea de Matricúlate
+    <i class="fas fa-arrow-up-right-from-square"></i>
+  </a>
+
+  <h2>¿Cómo Matricularse en Línea?</h2>
+  <div class="tutorial-matricula">
+    <!-- Video explicativo (opcional) -->
+    <div class="tutorial-video">
+      <video controls poster="img/pasos/video-poster.jpg" style="max-width:100%;border-radius:12px;">
+        <source src="videos/como-matricularse.mp4" type="video/mp4">
+        Tu navegador no soporta video HTML5.
+      </video>
+    </div>
+    <!-- Pasos con imágenes -->
+    <div class="tutorial-pasos">
+      <div class="tutorial-paso">
+        <img src="img/pasos/registro.png" alt="Paso 1: Registrarse" class="img-tutorial">
+        <div>
+          <strong>Paso 1:</strong>
+          <p>Si aún no tienes usuario, haz clic en 
+            <a href="https://serviciosenlinea.tecnacional.edu.ni/registro" target="_blank" class="btn-registro">Regístrate aquí</a> 
+            y llena todos los datos solicitados.
+          </p>
+        </div>
+      </div>
+      <div class="tutorial-paso">
+        <img src="img/pasos/acceder.png" alt="Paso 2: Acceder" class="img-tutorial">
+        <div>
+          <strong>Paso 2:</strong>
+          <p>Cuando ya tengas tu usuario y contraseña, haz clic en 
+            <a href="https://serviciosenlinea.tecnacional.edu.ni/inicio" target="_blank" class="btn-matriculate">Acceder</a> 
+            e ingresa tus datos.
+          </p>
+        </div>
+      </div>
+      <div class="tutorial-paso">
+        <img src="img/pasos/matricula.png" alt="Paso 3: Matricularse en línea" class="img-tutorial">
+        <div>
+          <strong>Paso 3:</strong>
+          <p>Dentro del portal, selecciona la opción <b>“Matricúlate”</b>, completa el formulario y adjunta los documentos requeridos.</p>
+        </div>
+      </div>
+      <div class="tutorial-paso">
+        <img src="img/pasos/confirmacion.png" alt="Paso 4: Confirmación" class="img-tutorial">
+        <div>
+          <strong>Paso 4:</strong>
+          <p>Recibirás una confirmación en pantalla y/o por correo electrónico. ¡Listo, tu matrícula está en proceso!</p>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+  <section id="vida-estudiantil" class="info-seccion" style="display:none;">
+    <h2>Vida Estudiantil</h2>
+    <p>Actividades y vida estudiantil.</p>
+  </section>
+  <section id="proyecto-destacados" class="info-seccion" style="display:none;">
+    <h2>Proyectos Destacados</h2>
+    <p>Proyectos destacados de estudiantes.</p>
+  </section>
+  <section id="reglamento-interno" class="info-seccion" style="display:none;">
+    <h2>Reglamento Interno</h2>
+    <p>Reglamento interno del centro.</p>
+  </section>
+  <section id="evaluaciones-calificaciones" class="info-seccion" style="display:none;">
+    <h2>Evaluaciones y Calificaciones</h2>
+    <p>Información sobre evaluaciones y calificaciones.</p>
+  </section>
+
+  
+
+  <!-- Galería -->
+  <section id="actividades-academicas" class="info-seccion" style="display:none;">
+    <h2>Actividades Académicas</h2>
+    <p>Galería de actividades académicas.</p>
+  </section>
+  <section id="videos" class="info-seccion" style="display:none;">
+    <h2>Videos</h2>
+    <p>Videos institucionales y estudiantiles.</p>
+  </section>
+  <section id="ferias-tecnologicas" class="info-seccion" style="display:none;">
+    <h2>Ferias Tecnológicas</h2>
+    <p>Galería de ferias tecnológicas.</p>
+  </section>
+  <section id="creativa-chic" class="info-seccion" style="display:none;">
+    <h2>Creativa Chic</h2>
+    <p>Galería Creativa Chic.</p>
+  </section>
+  <section id="hackathon" class="info-seccion" style="display:none;">
+    <h2>Hackathon</h2>
+    <p>Galería de hackathons.</p>
+  </section>
+  <!-- Galería de Fotos Dinámica -->
+<section id="galeria-fotos" class="galeria-fotos-seccion">
+  <h2>Galería de Fotos</h2>
+  <div id="galeria-fotos-lista" class="galeria-fotos-lista"></div>
+</section>
+
+  <!-- Noticias y Blog -->
+  <section id="innovacion-educativa" class="info-seccion" style="display:none;">
+    <h2>Innovación Educativa</h2>
+    <p>Noticias sobre innovación educativa.</p>
+  </section>
+  <section id="publicaciones-estudiantes" class="info-seccion" style="display:none;">
+    <h2>Publicaciones de Estudiantes</h2>
+    <p>Artículos y publicaciones de estudiantes.</p>
+  </section>
+  <section id="articulos-opinion" class="info-seccion" style="display:none;">
+    <h2>Artículos de Opinión</h2>
+    <p>Opiniones y artículos destacados.</p>
+  </section>
+  <section id="actividades-institucionales" class="info-seccion" style="display:none;">
+    <h2>Actividades Institucionales</h2>
+    <p>Noticias sobre actividades institucionales.</p>
+  </section>
+
+  <!-- Contacto -->
+  <section id="formulario-contacto" class="info-seccion" style="display:none;">
+    <h2>Formulario de Contacto</h2>
+    <!-- Aquí puedes poner tu formulario de contacto -->
+    <form class="form-elegante">
+      <div class="campo-form">
+        <i class="fas fa-user"></i>
+        <input type="text" name="nombre" placeholder="Tu nombre" required>
+      </div>
+      <div class="campo-form">
+        <i class="fas fa-envelope"></i>
+        <input type="email" name="correo" placeholder="Tu correo" required>
+      </div>
+      <div class="campo-form">
+        <i class="fas fa-comment-dots"></i>
+        <textarea name="mensaje" placeholder="Tu mensaje" required></textarea>
+      </div>
+      <button type="submit"><i class="fas fa-paper-plane"></i> Enviar mensaje</button>
+    </form>
+  </section>
+  
+</main>
+ <footer>
+    <p>&copy; 2025 Centro Cultural y Politécnico José Coronel Urtecho - INATEC</p>
+  
+  </footer>
+<!-- ...tu contenido anterior... -->
+
+<!-- Modal para mostrar la información (solo uno, fuera del <main>) -->
+<div id="modal-info" class="modal-info" style="display:none;">
+  <div class="modal-content">
+    <span class="modal-close" id="modal-close">&times;</span>
+    <div id="modal-body"></div>
+  </div>
+</div>
+
+<script>
+// Galerías con imágenes y videos (ajusta las rutas según tus archivos)
+const galerias = {
+  "actividades-academicas": {
+    titulo: "Actividades Académicas",
+    descripcion: "Galería de actividades académicas.",
+    items: [
+      { tipo: "img", src: "img/galeria/actividad1.jpg", alt: "Actividad 1" },
+      { tipo: "img", src: "img/galeria/actividad2.jpg", alt: "Actividad 2" },
+      { tipo: "img", src: "img/galeria/actividad3.jpg", alt: "Actividad 3" }
+    ]
+  },
+  "videos": {
+    titulo: "Videos",
+    descripcion: "Videos institucionales y estudiantiles.",
+    items: [
+      { tipo: "video", src: "videos/video1.mp4", alt: "Video 1" },
+      { tipo: "video", src: "videos/video2.mp4", alt: "Video 2" }
+    ]
+  },
+  "ferias-tecnologicas": {
+    titulo: "Ferias Tecnológicas",
+    descripcion: "Galería de ferias tecnológicas.",
+    items: [
+      { tipo: "img", src: "img/galeria/feria1.jpg", alt: "Feria 1" },
+      { tipo: "img", src: "img/galeria/feria2.jpg", alt: "Feria 2" }
+    ]
+  },
+  "creativa-chic": {
+    titulo: "Creativa Chic",
+    descripcion: "Galería Creativa Chic.",
+    items: [
+      { tipo: "img", src: "img/galeria/creativa1.jpg", alt: "Creativa 1" }
+    ]
+  },
+  "hackathon": {
+    titulo: "Hackathon",
+    descripcion: "Galería de hackathons.",
+    items: [
+      { tipo: "img", src: "img/galeria/hackathon1.jpg", alt: "Hackathon 1" }
+    ]
+  },
+  "graduaciones": {
+    titulo: "Graduaciones",
+    descripcion: "Galería de graduaciones.",
+    items: [
+      { tipo: "img", src: "img/galeria/graduacion1.jpg", alt: "Graduación 1" }
+    ]
+  }
+};
+
+// IDs de secciones que se muestran en la página (Inicio y submenús)
+const idsEnPagina = [
+  "bienvenida", "mision-vision", "historia", "noticias", "testimonios"
+];
+
+// Mostrar sección en página o en modal según el enlace
+document.querySelectorAll('.menu a[href^="#"]').forEach(link => {
+  link.addEventListener('click', function(e) {
+    const id = this.getAttribute('href').replace('#','');
+    const target = document.getElementById(id);
+    if (galerias[id]) {
+      e.preventDefault();
+      mostrarCarruselGaleria(id);
+    } else if(target && target.classList.contains('info-seccion')) {
+      e.preventDefault();
+      if (idsEnPagina.includes(id)) {
+        document.querySelectorAll('.info-seccion').forEach(sec => sec.style.display = 'none');
+        target.style.display = 'block';
+        window.scrollTo({ top: target.offsetTop - 80, behavior: 'smooth' });
+      } else {
+        document.getElementById('modal-body').innerHTML = target.innerHTML;
+        document.getElementById('modal-info').style.display = 'flex';
+      }
+    }
+  });
+});
+
+// Carrusel para galería en modal
+function mostrarCarruselGaleria(id) {
+  const gal = galerias[id];
+  if (!gal) return;
+  let carrusel = `
+    <h2>${gal.titulo}</h2>
+    <p>${gal.descripcion}</p>
+    <div class="carrusel-modal">
+      <button class="carrusel-prev">&lt;</button>
+      <div class="carrusel-slide">
+        ${gal.items.map((item, i) =>
+          item.tipo === "img"
+            ? `<img src="${item.src}" alt="${item.alt}" class="carrusel-item" style="display:${i===0?'block':'none'};max-width:100%;border-radius:10px;">`
+            : `<video src="${item.src}" controls class="carrusel-item" style="display:${i===0?'block':'none'};max-width:100%;border-radius:10px;"></video>`
+        ).join('')}
+      </div>
+      <button class="carrusel-next">&gt;</button>
+    </div>
+  `;
+  document.getElementById('modal-body').innerHTML = carrusel;
+  document.getElementById('modal-info').style.display = 'flex';
+
+  // Carrusel funcional
+  let idx = 0;
+  const items = document.querySelectorAll('.carrusel-item');
+  document.querySelector('.carrusel-prev').onclick = () => {
+    items[idx].style.display = 'none';
+    idx = (idx - 1 + items.length) % items.length;
+    items[idx].style.display = 'block';
+  };
+  document.querySelector('.carrusel-next').onclick = () => {
+    items[idx].style.display = 'none';
+    idx = (idx + 1) % items.length;
+    items[idx].style.display = 'block';
+  };
+}
+
+// Función para mostrar la sección de bienvenida
+function mostrarBienvenida() {
+  document.querySelectorAll('.info-seccion').forEach(sec => sec.style.display = 'none');
+  const bienvenida = document.getElementById('bienvenida');
+  if (bienvenida) bienvenida.style.display = 'block';
+  window.scrollTo({ top: bienvenida.offsetTop - 80, behavior: 'smooth' });
+}
+
+// Cerrar el modal al hacer clic en la X
+document.getElementById('modal-close').onclick = function() {
+  document.getElementById('modal-info').style.display = 'none';
+  window.scrollTo({ top: 0, behavior: 'smooth' });
+};
+// Cerrar el modal al hacer clic fuera del contenido
+document.getElementById('modal-info').onclick = function(e) {
+  if (e.target === this) {
+    this.style.display = 'none';
+    window.scrollTo({ top: 0, behavior: 'smooth' });
+  }
+};
+
+// Mostrar la primera sección de Inicio por defecto
+window.addEventListener('DOMContentLoaded', () => {
+  mostrarBienvenida();
+});
+</script>
+<script>
+// Mostrar fecha y hora local
+function mostrarFechaHora() {
+  const ahora = new Date();
+  const opciones = { year: 'numeric', month: 'long', day: 'numeric' };
+  const fecha = ahora.toLocaleDateString(undefined, opciones);
+  const hora = ahora.toLocaleTimeString();
+  document.getElementById('info-usuario').innerHTML = 
+    `<i class="fas fa-clock"></i> ${fecha} - ${hora}`;
+}
+mostrarFechaHora();
+setInterval(mostrarFechaHora, 1000);
+
+// Obtener país usando la API de geolocalización por IP
+fetch('https://ipapi.co/json/')
+  .then(res => res.json())
+  .then(data => {
+    if(data && data.country_name) {
+      document.getElementById('info-usuario').innerHTML += 
+        ` &nbsp; <i class="fas fa-globe"></i> ${data.country_name}`;
+    }
+  });
+</script>
+<script>
+// Horario de atención: 8:00 am a 5:00 pm
+function mostrarHorarioAtencion() {
+  const ahora = new Date();
+  const hora = ahora.getHours();
+  const minutos = ahora.getMinutes();
+  // Abierto de 8:00 a 17:00 (5pm)
+  let abierto = (hora > 8 && hora < 17) || (hora === 8 && minutos >= 0) || (hora === 17 && minutos === 0);
+  let estado = abierto
+    ? '<span style="color:#00e676;"><i class="fas fa-door-open"></i> Abierto</span>'
+    : '<span style="color:#ff5252;"><i class="fas fa-door-closed"></i> Cerrado</span>';
+  document.getElementById('horario-atencion').innerHTML =
+    `<i class="fas fa-business-time"></i> Horario de atención: 8:00 am a 5:00 pm &nbsp; ${estado}`;
+}
+mostrarHorarioAtencion();
+setInterval(mostrarHorarioAtencion, 60000); // Actualiza cada minuto
+
+</script>
+
+
+<!-- Google Identity Services -->
+<script src="https://accounts.google.com/gsi/client" async defer></script>
+<script>
+let googleUser = null;
+window.googleUser = googleUser;
+// Inicializa el botón de Google Sign-In
+window.onload = function() {
+  // Recupera usuario si existe
+  const userStr = localStorage.getItem('googleUser');
+  if (userStr) {
+    googleUser = JSON.parse(userStr);
+    window.googleUser = googleUser; // <-- HAZ GLOBAL
+    document.getElementById('google-user-info').innerHTML =
+      `<img src="${googleUser.foto}" style="width:40px;height:40px;border-radius:50%;vertical-align:middle;margin-right:8px;">
+       <strong>${googleUser.nombre}</strong>
+       <button id="cerrar-sesion" style="margin-left:10px;">Cerrar sesión</button>`;
+    document.getElementById('google-signin-btn').style.display = 'none';
+    // Botón para cerrar sesión
+    document.getElementById('cerrar-sesion').onclick = function() {
+      localStorage.removeItem('googleUser');
+      location.reload();
+    };
+  } else {
+    google.accounts.id.initialize({
+      client_id: "913617944134-1o4lmbnqkmr39oubv7k72lvajmcgh8ns.apps.googleusercontent.com",
+      callback: handleCredentialResponse
+    });
+    google.accounts.id.renderButton(
+      document.getElementById("google-signin-btn"),
+      { theme: "outline", size: "large" }
+    );
+    google.accounts.id.prompt();
+  }
+};
+
+function handleCredentialResponse(response) {
+  const data = parseJwt(response.credential);
+  googleUser = {
+    nombre: data.name,
+    foto: data.picture,
+    email: data.email
+  };
+  window.googleUser = googleUser; // <-- HAZ GLOBAL
+  localStorage.setItem('googleUser', JSON.stringify(googleUser)); // Guarda usuario
+  document.getElementById('google-user-info').innerHTML =
+    `<img src="${googleUser.foto}" style="width:40px;height:40px;border-radius:50%;vertical-align:middle;margin-right:8px;">
+     <strong>${googleUser.nombre}</strong>
+     <button id="cerrar-sesion" style="margin-left:10px;">Cerrar sesión</button>`;
+  document.getElementById('google-signin-btn').style.display = 'none';
+  // Botón para cerrar sesión
+  document.getElementById('cerrar-sesion').onclick = function() {
+    localStorage.removeItem('googleUser');
+    location.reload();
+  };
+}
+
+// Decodifica el JWT de Google  <!-- ESTE CODIGO FUE DISEÑADO BY OSCARELIESER -->
+function parseJwt (token) {
+  var base64Url = token.split('.')[1];
+  var base64 = base64Url.replace(/-/g, '+').replace(/_/g, '/');
+  var jsonPayload = decodeURIComponent(atob(base64).split('').map(function(c) {
+      return '%' + ('00' + c.charCodeAt(0).toString(16)).slice(-2);
+  }).join(''));
+  return JSON.parse(jsonPayload);
+}
+</script>
+ 
+ <script>
+// Noticias de ejemplo
+const noticias = [
+  {
+    titulo: "Inauguración del nuevo laboratorio de informática",
+    fecha: "2025-05-20",
+    imagen: "img/noticias/laboratorio.jpg",
+    texto: "El Centro Cultural y Politécnico José Coronel Urtecho inauguró un moderno laboratorio de informática equipado con tecnología de punta para beneficio de los estudiantes."
+  },
+  {
+    titulo: "Feria tecnológica 2025",
+    fecha: "2025-04-15",
+    imagen: "img/noticias/feria.jpg",
+    texto: "Estudiantes y docentes participaron en la Feria Tecnológica 2025, presentando proyectos innovadores y soluciones creativas para la comunidad."
+  },
+  {
+    titulo: "Visita de autoridades educativas",
+    fecha: "2025-03-10",
+    imagen: "img/noticias/autoridades.jpg",
+    texto: "Recibimos la visita de autoridades del Ministerio de Educación, quienes reconocieron el esfuerzo y la calidad educativa de nuestro centro."
+  }
+];
+
+// Función para mostrar las noticias
+function mostrarNoticias() {
+  const contenedor = document.getElementById('noticias-lista');
+  contenedor.innerHTML = noticias.map(n => `
+    <div class="noticia-card">
+      <img src="${n.imagen}" alt="${n.titulo}" class="noticia-img">
+      <div class="noticia-info">
+        <h3>${n.titulo}</h3>
+        <span class="noticia-fecha">${new Date(n.fecha).toLocaleDateString()}</span>
+        <p>${n.texto}</p>
+      </div>
+    </div>
+  `).join('');
+}
+document.addEventListener('DOMContentLoaded', mostrarNoticias);
+</script>
+ 
+    <script>
+// Datos de ejemplo (puedes poner tus propios datos y fotos)
+const docentes = [
+  { nombre: "María López", cargo: "Docente de Matemáticas", foto: "img/personal/maria.jpg" },
+  { nombre: "Carlos Pérez", cargo: "Docente de Informática", foto: "img/personal/carlos.jpg" },
+  { nombre: "Ana Torres", cargo: "Docente de Arte", foto: "img/personal/ana.jpg" }
+];
+const coordinadores = [
+  { nombre: "Luis Gómez", cargo: "Coordinador de Área Técnica", foto: "img/personal/luis.jpg" },
+  { nombre: "Sofía Martínez", cargo: "Coordinadora de Cultura", foto: "img/personal/sofia.jpg" }
+];
+const administrativos = [
+  { nombre: "Pedro Sánchez", cargo: "Director Administrativo", foto: "img/personal/pedro.jpg" },
+  { nombre: "Lucía Ramírez", cargo: "Secretaria", foto: "img/personal/lucia.jpg" }
+];
+
+// Función para mostrar la galería
+function mostrarGaleriaPersonal(lista, contenedorId) {
+  const contenedor = document.getElementById(contenedorId);
+  contenedor.innerHTML = lista.map(p => `
+    <div class="personal-card">
+      <img src="${p.foto}" alt="${p.nombre}" class="personal-foto">
+      <div class="personal-info">
+        <strong>${p.nombre}</strong>
+        <span>${p.cargo}</span>
+      </div>
+    </div>
+  `).join('');
+}
+
+// Mostrar las galerías al cargar la página   <!-- ESTE CODIGO FUE DISEÑADO BY OSCARELIESER -->
+document.addEventListener('DOMContentLoaded', () => {
+  mostrarGaleriaPersonal(docentes, "galeria-docentes");
+  mostrarGaleriaPersonal(coordinadores, "galeria-coordinadores");
+  mostrarGaleriaPersonal(administrativos, "galeria-administrativos");
+});
+</script>
+<script>
+// Mostrar/ocultar la sección del carnet digital y lógica de vista previa
+document.addEventListener('DOMContentLoaded', function() {
+  const btnMostrar = document.getElementById('mostrar-carnet-btn');
+  const seccion = document.getElementById('carnet-digital-seccion');
+  const form = document.getElementById('form-carnet-seccion');
+  const preview = document.getElementById('preview-carnet-seccion');
+  const carnetFoto = document.getElementById('carnet-foto-preview-seccion');
+  const carnetNombre = document.getElementById('carnet-nombre-preview-seccion');
+  const carnetNumero = document.getElementById('carnet-numero-preview-seccion');
+  const carnetTurno = document.getElementById('carnet-turno-preview-seccion');
+  const carnetHora = document.getElementById('carnet-hora-preview-seccion');
+  const carnetCarrera = document.getElementById('carnet-carrera-preview-seccion');
+  const descargarBtn = document.getElementById('descargar-carnet-seccion');
+
+  // Mostrar/ocultar sección
+  btnMostrar.onclick = function() {
+    if (seccion.style.display === "none" || seccion.style.display === "") {
+      seccion.style.display = "block";
+      seccion.scrollIntoView({ behavior: 'smooth', block: 'start' });
+      btnMostrar.innerHTML = '<i class="fas fa-id-card"></i> Ocultar Registro';
+    } else {
+      seccion.style.display = "none";
+      btnMostrar.innerHTML = '<i class="fas fa-id-card"></i> Registrar Carnet Digital';
+    }
+  };
+
+  // Lógica del carnet digital
+  form.onsubmit = function(e) {
+    e.preventDefault();
+    carnetNombre.textContent = document.getElementById('nombre-carnet-seccion').value;
+    carnetNumero.textContent = document.getElementById('numero-carnet-seccion').value;
+    carnetTurno.textContent = document.getElementById('turno-carnet-seccion').value;
+    carnetHora.textContent = document.getElementById('hora-carnet-seccion').value;
+    carnetCarrera.textContent = document.getElementById('carrera-carnet-seccion').value;
+    const file = document.getElementById('foto-carnet-seccion').files[0];
+    if (file) {
+      const reader = new FileReader();
+      reader.onload = function(evt) {
+        carnetFoto.src = evt.target.result;
+        preview.style.display = 'block';
+        setTimeout(() => {
+          descargarBtn.scrollIntoView({ behavior: 'smooth', block: 'center' });
+        }, 200);
+      };
+      reader.readAsDataURL(file);
+    } else {
+      preview.style.display = 'block';
+      setTimeout(() => {
+        descargarBtn.scrollIntoView({ behavior: 'smooth', block: 'center' });
+      }, 200);
+    }
+  };
+
+  descargarBtn.onclick = function() {
+    html2canvas(document.getElementById('carnet-digital-seccion-preview')).then(function(canvas) {
+      const link = document.createElement('a');
+      link.download = 'carnet-digital.png';
+      link.href = canvas.toDataURL();
+      link.click();
+    });
+  };
+});
+</script>
+<script>
+  // Siempre al cargar, sube al inicio de la página   <!-- ESTE CODIGO FUE DISEÑADO BY OSCARELIESER -->
+  window.addEventListener('DOMContentLoaded', function() {
+    window.scrollTo({ top: 0, behavior: 'auto' });
+  });
+</script>
+
+</body>
+</html>
